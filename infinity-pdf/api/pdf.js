@@ -287,7 +287,7 @@ export default async function handler(req, res) {
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Length", String(result.pdf.length));
-    res.setHeader("Content-Disposition", 'attachment; filename="webpage.pdf"; filename*=UTF-8\'\' ' + encodedName);
+    res.setHeader("Content-Disposition", 'attachment; filename="webpage.pdf"; filename*=UTF-8\'\'' + encodedName);
     res.end(result.pdf);
   } catch (error) {
     const message = typeof error?.message === "string" ? error.message : "حدث خطأ أثناء إنشاء PDF.";
