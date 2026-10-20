@@ -1,0 +1,17 @@
+{
+  "name": "infinity-pdf",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Convert public webpages into searchable, selectable-text PDFs.",
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "check": "node --check api/pdf.js && node --check app.js"
+  },
+  "dependencies": {
+    "@sparticuz/chromium": "153.0.0",
+    "puppeteer-core": "25.11.0"
+  }
+}

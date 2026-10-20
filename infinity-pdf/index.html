@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101318" />
+  <meta name="description" content="حوّل صفحات الويب إلى ملفات PDF واضحة قابلة للبحث، بصفحة واحدة طويلة أو صفحات ورقية قياسية." />
+  <title>Infinity PDF — تحويل صفحات الويب إلى PDF</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Infinity PDF — الرئيسية">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 44 28" fill="none"><path d="M13.4 4.5C6.8 4.5 2.5 8.9 2.5 14s4.3 9.5 10.9 9.5c4.2 0 7.2-3 8.6-4.6L30.6 9.1c1.5-1.6 3.5-2.4 5.2-2.4 3.4 0 5.7 3.1 5.7 7.3s-2.3 7.3-5.7 7.3c-1.8 0-3.8-.9-5.2-2.4l-9-9.7c-2-2.2-4.4-4.7-8.2-4.7Z" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-name">INFINITY <b>PDF</b></span>
+      </a>
+      <div class="topbar-note"><span class="status-dot"></span> أداة تحويل صفحات الويب</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow"><span class="eyebrow-line"></span> احفظ المحتوى كما تراه</div>
+        <h1>أي صفحة ويب.<br /><span>ملف PDF جاهز.</span></h1>
+        <p class="hero-copy">حوّل صفحة ويب إلى ملف PDF قابل للبحث ونسخ النصوص منه. اختر صفحة طويلة واحدة أو صفحات ورقية عادية، واضبط النتيجة قبل التنزيل.</p>
+        <div class="feature-row" aria-label="مميزات الأداة">
+          <span><i class="feature-check">✓</i> نص قابل للتحديد</span>
+          <span><i class="feature-check">✓</i> صفحة طويلة أو متعددة</span>
+          <span><i class="feature-check">✓</i> بدون حساب</span>
+        </div>
+      </section>
+
+      <section class="workspace" aria-labelledby="workspace-title">
+        <div class="workspace-heading">
+          <div>
+            <div class="section-kicker">مساحة العمل</div>
+            <h2 id="workspace-title">إعداد ملف PDF</h2>
+          </div>
+          <span class="step-label"><span>01</span> أدخل الرابط</span>
+        </div>
+
+        <form id="export-form" novalidate>
+          <div class="field-block">
+            <label for="page-url">رابط صفحة الويب</label>
+            <div class="url-input-wrap">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13.5a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.7 1.7M14 10.5a4.5 4.5 0 0 0-6.4 0l-3 3A4.5 4.5 0 0 0 11 19.9l1.7-1.7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <input id="page-url" name="url" type="url" inputmode="url" placeholder="https://example.com/article" autocomplete="url" required />
+              <button type="button" class="text-button" id="paste-example">مثال</button>
+            </div>
+            <p class="field-hint">يدعم الصفحات العامة التي يمكن فتحها بدون تسجيل دخول أو تحقق خاص.</p>
+          </div>
+
+          <button type="button" class="batch-toggle" id="batch-toggle" aria-expanded="false" aria-controls="batch-panel">
+            <span class="batch-toggle-icon">＋</span> عندك أكثر من رابط؟ <span class="batch-subtle">معالجة عدة صفحات</span>
+            <span class="chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="batch-panel" id="batch-panel" hidden>
+            <label for="batch-urls">روابط متعددة <span class="label-note">رابط واحد في كل سطر — بحد أقصى 5 روابط</span></label>
+            <textarea id="batch-urls" rows="4" placeholder="https://example.com/page-1&#10;https://example.com/page-2"></textarea>
+            <p class="field-hint">سيتم تنزيل ملف PDF مستقل لكل رابط بالترتيب.</p>
+          </div>
+
+          <div class="divider-line"></div>
+          <div class="settings-heading">
+            <div><div class="section-kicker">التحكم في الإخراج</div><h3>كيف تريد شكل الملف؟</h3></div>
+            <span class="step-label"><span>02</span> خصّص النتيجة</span>
+          </div>
+
+          <div class="mode-grid" role="radiogroup" aria-label="طريقة تقسيم ملف PDF">
+            <label class="mode-card selected" for="mode-single">
+              <input id="mode-single" type="radio" name="mode" value="single" checked />
+              <span class="mode-art tall-art" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="mode-title">صفحة واحدة طويلة</span>
+              <span class="mode-description">كل المحتوى في صفحة PDF واحدة قابلة للبحث.</span>
+              <span class="radio-indicator"></span>
+            </label>
+            <label class="mode-card" for="mode-paged">
+              <input id="mode-paged" type="radio" name="mode" value="paged" />
+              <span class="mode-art pages-art" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="mode-title">صفحات ورقية عادية</span>
+              <span class="mode-description">تقسيم المحتوى على ورق A4 أو A3 أو Letter.</span>
+              <span class="radio-indicator"></span>
+            </label>
+          </div>
+
+          <div class="settings-grid">
+            <div class="field-block" id="paper-size-wrap" hidden>
+              <label for="paper-size">حجم الورق</label>
+              <select id="paper-size" name="paperSize">
+                <option value="A4">A4 — الأكثر شيوعًا</option>
+                <option value="A3">A3 — كبير</option>
+                <option value="Letter">Letter — أمريكي</option>
+                <option value="Legal">Legal — قانوني</option>
+              </select>
+            </div>
+            <div class="field-block" id="orientation-wrap" hidden>
+              <label for="orientation">اتجاه الورق</label>
+              <select id="orientation" name="orientation">
+                <option value="portrait">طولي</option>
+                <option value="landscape">عرضي</option>
+              </select>
+            </div>
+            <div class="field-block">
+              <label for="viewport-width">عرض معاينة الصفحة</label>
+              <select id="viewport-width" name="viewportWidth">
+                <option value="1024">1024 px — مضغوط</option>
+                <option value="1280" selected>1280 px — موصى به</option>
+                <option value="1440">1440 px — واسع</option>
+              </select>
+            </div>
+            <div class="field-block">
+              <label for="margins">الهوامش <span class="label-note">للصفحات الورقية</span></label>
+              <select id="margins" name="margins">
+                <option value="none">بدون هوامش</option>
+                <option value="small" selected>صغيرة</option>
+                <option value="default">عادية</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="toggles-grid">
+            <label class="toggle-row" for="clean-mode">
+              <span class="toggle-icon">✦</span><span class="toggle-copy"><b>وضع التنظيف</b><small>إخفاء العناصر الثابتة والإعلانات الشائعة قدر الإمكان.</small></span>
+              <span class="switch"><input id="clean-mode" type="checkbox" checked /><i></i></span>
+            </label>
+            <label class="toggle-row" for="print-backgrounds">
+              <span class="toggle-icon">◐</span><span class="toggle-copy"><b>الحفاظ على الخلفيات</b><small>طباعة ألوان وخلفيات الصفحة.</small></span>
+              <span class="switch"><input id="print-backgrounds" type="checkbox" checked /><i></i></span>
+            </label>
+            <label class="toggle-row" for="page-headers">
+              <span class="toggle-icon">↕</span><span class="toggle-copy"><b>رأس وتذييل الصفحات</b><small>عنوان الصفحة ورقم الصفحة في الوضع الورقي.</small></span>
+              <span class="switch"><input id="page-headers" type="checkbox" /><i></i></span>
+            </label>
+            <label class="toggle-row" for="print-css">
+              <span class="toggle-icon">▤</span><span class="toggle-copy"><b>استخدام تنسيق الطباعة</b><small>تطبيق قواعد الطباعة الخاصة بالموقع إن وجدت.</small></span>
+              <span class="switch"><input id="print-css" type="checkbox" /><i></i></span>
+            </label>
+          </div>
+
+          <div class="privacy-note">
+            <span class="privacy-icon" aria-hidden="true">ⓘ</span>
+            <p>لإنشاء PDF من رابط، يُرسل الرابط إلى واجهة التحويل على الخادم لفتح الصفحة مؤقتًا. لا نوفّر الوصول إلى صفحات محمية بتسجيل دخولك. لا تدخل روابط خاصة أو تحتوي على رموز سرية.</p>
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" class="primary-button" id="export-button">
+              <span class="button-label">تحويل إلى PDF</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="submit-caption">يبدأ التنزيل عند اكتمال المعالجة</span>
+          </div>
+
+          <div class="progress-wrap" id="progress-wrap" hidden aria-live="polite">
+            <div class="progress-meta"><span id="progress-message">جارٍ تجهيز الصفحة…</span><span id="progress-count"></span></div>
+            <div class="progress-track"><i id="progress-bar"></i></div>
+          </div>
+          <div id="status-message" class="status-message" role="status" hidden></div>
+        </form>
+      </section>
+
+      <section class="how-it-works">
+        <div class="section-kicker">سير العمل</div>
+        <h2>من صفحة ويب إلى مستند.</h2>
+        <div class="how-grid">
+          <article><span class="how-number">01</span><h3>أضف الرابط</h3><p>استخدم رابط صفحة عامة متاحة على الإنترنت.</p></article>
+          <article><span class="how-number">02</span><h3>اختر التنسيق</h3><p>صفحة واحدة طويلة أو ورق قياسي مع تحكم في الهوامش.</p></article>
+          <article><span class="how-number">03</span><h3>نزّل الملف</h3><p>احصل على PDF نصي في أغلب الصفحات، وليس مجرد صورة كاملة.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><span>INFINITY PDF</span><span>أداة مستقلة ضمن Infinity Corp</span><a href="./README.md">معلومات المشروع</a></footer>
+  </div>
+</body>
+</html>
